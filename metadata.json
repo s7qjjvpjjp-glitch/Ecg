@@ -1,0 +1,5 @@
+{
+  "name": "MedLaudo AI",
+  "description": "Sistema de Apoio Diagnóstico por Inteligência Artificial para análise de Radiografia de Tórax e Eletrocardiograma.",
+  "requestFramePermissions": []
+}
