@@ -12,9 +12,9 @@ export async function analyzeMedicalImage(
   type: 'xray' | 'ecg'
 ): Promise<string> {
   try {
-    const prompt = type === 'xray' 
-      ? "Realize uma análise exaustiva e detalhada desta radiografia de tórax. 'Dê zoom' mentalmente em cada quadrante, avalie cada estrutura com calma e precisão seguindo o protocolo ABCDE+S. Não ignore nenhum detalhe sutil." 
-      : "Realize uma análise exaustiva e detalhada deste eletrocardiograma (ECG). 'Dê zoom' mentalmente em cada derivação, meça os intervalos com precisão e avalie a morfologia de cada onda com calma. Siga rigorosamente o protocolo de análise sistemática do Atlas de Sukienik. Identifique e descreva os achados com base estritamente no que é visível, sem assumir diagnósticos prévios. Aplique critérios específicos (como Sgarbossa) SOMENTE se houver achados compatíveis.";
+    const prompt = type === 'xray'
+      ? "Realize uma análise exaustiva e detalhada desta radiografia de tórax. 'Dê zoom' mentalmente em cada quadrante, avalie cada estrutura com calma e precisão seguindo o protocolo ABCDE+S. Não ignore nenhum detalhe sutil."
+      : "Realize uma análise exaustiva e detalhada deste eletrocardiograma (ECG) seguindo RIGOROSAMENTE o protocolo de 4 etapas: ETAPA ZERO (Validação da Imagem) → ETAPA 1 (Zoom e inspeção derivação a derivação — analise CADA uma das 12 derivações individualmente) → ETAPA 2 (Análise sistemática completa — seções 2.1 a 2.11) → ETAPA 3 (Geração do laudo estruturado completo). 'Dê zoom' mentalmente em cada derivação, conte quadrados pequenos para todas as medidas de intervalo, meça amplitudes em milímetros reais usando a calibração do ECG. Identifique e descreva os achados com base estritamente no que é visível. Busque ativamente padrões especiais (Brugada, WPW, Wellens, De Winter, S1Q3T3, hipercalemia). Aplique critérios de Sgarbossa se houver BRE. Calcule SEMPRE o QTc. Gere o laudo na estrutura obrigatória definida na Etapa 3.";
       
     const contextText = clinicalContext.trim() 
       ? `\nContexto clínico fornecido pelo médico: ${clinicalContext}` 
@@ -39,7 +39,7 @@ export async function analyzeMedicalImage(
         systemInstruction: SYSTEM_INSTRUCTIONS,
         temperature: 0.1,
         topP: 0.8,
-        maxOutputTokens: 8192,
+        maxOutputTokens: 16384,
       },
     });
 

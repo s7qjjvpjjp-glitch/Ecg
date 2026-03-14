@@ -60,7 +60,7 @@ export const MedicalChat: React.FC<MedicalChatProps> = ({ chat }) => {
           <div className="text-center py-8">
             <Bot className="w-12 h-12 text-slate-300 mx-auto mb-3" />
             <p className="text-slate-500 text-sm max-w-xs mx-auto">
-              Tire dúvidas sobre o laudo gerado ou consulte critérios do Atlas de Sukienik.
+              Tire dúvidas sobre o laudo gerado ou consulte critérios das referências bibliográficas (Braunwald, Marriott, SBC, AHA/ACC e outras).
             </p>
           </div>
         )}

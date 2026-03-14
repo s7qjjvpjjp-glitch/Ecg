@@ -11,7 +11,7 @@ import { Chat } from '@google/genai';
 export default function App() {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [clinicalContext, setClinicalContext] = useState('');
-  const [examType, setExamType] = useState<'xray' | 'ecg'>('xray');
+  const [examType, setExamType] = useState<'xray' | 'ecg'>('ecg');
   const [report, setReport] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -121,7 +121,7 @@ export default function App() {
           <div className="hidden md:flex items-center gap-4">
             <div className="flex items-center gap-2 text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 px-3 py-1.5 rounded-full font-semibold">
               <BookOpen size={14} />
-              <span>Atlas Sukienik Integrado</span>
+              <span>Protocolo ECG Avançado</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full font-medium">
               <FileText size={14} />
