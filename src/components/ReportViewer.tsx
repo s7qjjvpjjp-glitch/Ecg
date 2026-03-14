@@ -39,7 +39,7 @@ export function ReportViewer({ report, isLoading }: ReportViewerProps) {
     );
   }
 
-  const isRejection = report.includes("LAUDO NÃO REALIZADO") || report.includes("IMAGEM INADEQUADA");
+  const isRejection = report.includes("LAUDO NÃO REALIZADO") || report.includes("IMAGEM INADEQUADA") || report.includes("NÃO FOI POSSÍVEL REALIZAR A LEITURA");
 
   return (
     <motion.div 
